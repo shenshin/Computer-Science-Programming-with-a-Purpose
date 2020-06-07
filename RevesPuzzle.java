@@ -10,12 +10,12 @@ public class RevesPuzzle {
         reves(n, "a", "b", "c", "d");
     }
 
-    public static void hanoi(int n, String from, String to,
+    public static void hanoi(int n, int k, String from, String to,
                              String temp) {
         if (n != 0) {
-            hanoi(n - 1, from, temp, to);
-            print(n, from, to);
-            hanoi(n - 1, temp, to, from);
+            hanoi(n - 1, k, from, temp, to);
+            print(n + k, from, to);
+            hanoi(n - 1, k, temp, to, from);
         }
     }
 
@@ -24,10 +24,10 @@ public class RevesPuzzle {
         if (n == 1)
             print(n, from, to);
         else {
-            int k = (int) ((Math.sqrt(8 * n + 1) - 1) / 2);
-            reves(n - k, from, temp2, to, temp1);
-            hanoi(k, from, to, temp2);
-            reves(n - k, temp1, from, temp2, to);
+            int k = (int) Math.round((double) n + 1 - Math.sqrt(2 * (double) n + 1));
+            reves(k, from, temp2, to, temp1);
+            hanoi(n - k, k, from, to, temp2);
+            reves(k, temp1, from, temp2, to);
         }
     }
 
