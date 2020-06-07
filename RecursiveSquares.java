@@ -18,11 +18,11 @@ public class RecursiveSquares {
     // of the given side length.
     public static void draw(int n, double x, double y, double length) {
         if (n != 0) {
-            draw(n - 1, x + length / 2, y + length / 2, length / 2);// upper right
+            draw(n - 1, x + length / 2, y + length / 2, length / 2); // upper right
             draw(n - 1, x - length / 2, y + length / 2, length / 2); // upper left
             drawSquare(x, y, length);
-            draw(n - 1, x + length / 2, y - length / 2, length / 2);// lower right
-            draw(n - 1, x - length / 2, y - length / 2, length / 2);// lower left
+            draw(n - 1, x + length / 2, y - length / 2, length / 2); // lower right
+            draw(n - 1, x - length / 2, y - length / 2, length / 2); // lower left
         }
     }
 
@@ -30,12 +30,9 @@ public class RecursiveSquares {
     // square pattern of order n, centered on (0.5, 0.5) with side length 0.5.
     public static void main(String[] args) {
         int n = Math.abs(Integer.parseInt(args[0]));
-        StdDraw.setPenRadius(0.001);
-        StdDraw.enableDoubleBuffering();
         double x = 0.5;
         double y = 0.5;
         double length = 0.5;
         draw(n, x, y, length);
-        StdDraw.show();
     }
 }

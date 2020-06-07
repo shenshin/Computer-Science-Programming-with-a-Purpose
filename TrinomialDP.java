@@ -10,7 +10,7 @@ public class TrinomialDP {
     // для чего, в качестве хранилища промежуточных значений используется
     // массив long[][] s
     public static long trinomial(int n, int k) {
-        if (n < k) return 0L;
+        if (n < Math.abs(k)) return 0L;
         if (n == k) return 1L;
         long[][] s = new long[n + 1][n + 2];
         s[0][0] = 1L;
@@ -19,7 +19,7 @@ public class TrinomialDP {
                 s[i][j] = s[i - 1][Math.abs(j - 1)] + s[i - 1][j] + s[i - 1][j + 1];
             }
         }
-        return s[n][k];
+        return s[n][Math.abs(k)];
     }
 
     // Takes two integer command-line arguments n and k and prints T(n, k).
