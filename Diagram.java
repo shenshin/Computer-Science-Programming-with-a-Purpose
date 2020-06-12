@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Diagram {
     public static void main(String[] args) {
         double[] trials = { 1000.0, 2000.0, 4000.0, 8000.0, 16000.0 };
@@ -8,8 +10,8 @@ public class Diagram {
             logN[i] = Math.log(trials[i]) / Math.log(2);
             logT[i] = Math.log(time[i]) / Math.log(2);
         }
-        StdDraw.setXscale(logN[0] - 0.1, logN[logN.length - 1] + 0.1);
-        StdDraw.setYscale(logT[0] - 0.2, logT[logT.length - 1] + 0.2);
+        StdDraw.setXscale(9, 14);
+        StdDraw.setYscale(-2, 11);
 
         for (int i = 0; i < logT.length; i++) {
             StdDraw.setPenRadius(0.001);
@@ -20,5 +22,6 @@ public class Diagram {
             StdDraw.setPenColor(StdDraw.RED);
             StdDraw.point(logN[i], logT[i]);
         }
+        StdOut.println(Arrays.toString(logN) + "\n" + Arrays.toString(logT));
     }
 }
