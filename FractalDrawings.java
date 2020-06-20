@@ -5,18 +5,19 @@
  **************************************************************************** */
 
 import java.awt.Color;
-import java.util.Arrays;
 
 public class FractalDrawings {
 
     public static void main(String[] args) {
-
         // number of iterations
         int trials = Integer.parseInt(args[0]);
+        drawFractals(trials);
+    }
 
+    public static void drawFractals(int trials) {
         // probability distribution for choosing each rule
         double[] dist = StdArrayIO.readDouble1D();
-        System.out.println(Arrays.toString(dist));
+
         // update matrices
         double[][] cx = StdArrayIO.readDouble2D();
         double[][] cy = StdArrayIO.readDouble2D();
@@ -54,6 +55,5 @@ public class FractalDrawings {
 
         // ensure everything gets drawn
         StdDraw.show();
-
     }
 }
